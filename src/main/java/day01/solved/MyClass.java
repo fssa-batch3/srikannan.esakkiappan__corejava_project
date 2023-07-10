@@ -2,7 +2,7 @@ package day01.solved;
 
 public class MyClass {
     // Declare a static variable
-    public static int staticVariable = 10;
+    public static int staticVariable = 10; //final - constant (not manipulate)
     public int instanceVariable = 10;
 
     public static void main(String[] args) {

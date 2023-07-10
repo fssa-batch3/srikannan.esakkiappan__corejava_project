@@ -31,7 +31,6 @@ public class Cat {
     }
 
 	public String speak() {
-
 		return "Meow!";
     }
 

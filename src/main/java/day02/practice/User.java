@@ -31,18 +31,5 @@ public class User {
 		this.emailid = emailid;
 	}
 
-		public static void main(String[] args) {
-			User u = new User();
-			
-			 u.setId(6);
-			 u.setName("sri");
-			 u.setPassword("Sri@2003");
-			 u.setEmailid("sri@gmail.com");
-			 
-			 System.out.println(u.getId());
-			 System.out.println(u.getName());
-			 System.out.println(u.getPassword());
-			 System.out.println(u.getEmailid());
-	}
 	
 }
