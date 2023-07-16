@@ -21,9 +21,8 @@ import java.util.ArrayList;
 	        ArrayList<Detail> tasks = new ArrayList<>();
 	        tasks.add(new Detail("Sleeping"));
 	        tasks.add(new Detail("coding"));
-	        tasks.add(new Detail("Taking the dog for Walking"));
 
-	        boolean exists = findTaskByName("Cleaning House", tasks); 
+	        boolean exists = findTaskByName("coding", tasks); 
 	        System.out.println("Task Status : " + exists);
 	    }
 
