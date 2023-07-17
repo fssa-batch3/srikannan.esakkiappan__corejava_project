@@ -13,8 +13,8 @@ public class DuplicatNumber {
 		arr.add(5);
 		arr.add(7);
 		arr.add(7);
+		arr.add(2);
 		removeDuplicateElements(arr);
-
 	}
 
 	public static void removeDuplicateElements(ArrayList<Integer> numbers) throws Exception {
@@ -24,7 +24,7 @@ public class DuplicatNumber {
 		
 		HashSet<Integer> uniqueArr = new HashSet<Integer>(numbers);
 
-		System.out.println("Using  Hasset to remove duplicates");
+		System.out.println("Using  HashSet to remove duplicates");
 		for (Integer arr1 : uniqueArr) {
 			System.out.print(arr1 + " ");
 
@@ -32,12 +32,12 @@ public class DuplicatNumber {
 
 	}
 
-	public static boolean validateDuplicatemethod(ArrayList<Integer> numbers, HashSet<Integer> uniqueArr)
+	public static boolean validateDuplicatemethod(ArrayList<Integer> numbers, HashSet<Integer> unique)
 			throws Exception {
 		HashSet<Integer> set = new HashSet<>(numbers);
 
-		if (!set.equals(uniqueArr)) {
-			throw new Exception("The array does not contain all unique elements.");
+		if (!set.equals(unique)) {
+			throw new Exception("This array is not contain all unique elements.");
 
 		}
 		return true;
