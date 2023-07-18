@@ -11,10 +11,10 @@ public class TestBoolean {
 	public void testValidFindTask() throws Exception {
 
 		ArrayList<Detail> taskList = new ArrayList<>();
-		taskList.add(new Detail("Taskplay"));
-		taskList.add(new Detail("Taskeating"));
+		taskList.add(new Detail("play"));
+		taskList.add(new Detail("eating"));
 
-		boolean findTask = BoolReturn.findTaskByName("Taskplay", taskList);
+		boolean findTask = BoolReturn.findTaskByName("play", taskList);
 
 		Assertions.assertTrue(findTask);
 
@@ -25,10 +25,10 @@ public class TestBoolean {
 
 		try {
 			ArrayList<Detail> taskList = new ArrayList<>();
-			taskList.add(new Detail("Taskplay"));
-			taskList.add(new Detail("Taskeating"));
+			taskList.add(new Detail("play"));
+			taskList.add(new Detail("eating"));
 
-			boolean findTask = BoolReturn.findTaskByName("Taskplay11", taskList);
+			boolean findTask = BoolReturn.findTaskByName("play11", taskList);
 
 			Assertions.fail("testInValidFindTask failed");
 		} catch (Exception ex) {

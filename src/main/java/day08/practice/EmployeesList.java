@@ -11,12 +11,6 @@ public class EmployeesList {
 		HashMap<String, ArrayList<String>> countMap = new HashMap<String, ArrayList<String>>();
 		System.out.println("Enter min " + num + " details :");
 		while (count < num) {
-			// Sample Inputs
-			// HR,Ram
-			// HR, Suresh
-			// IT, Basker
-			// IT, Joseph
-			// Admin, Sundar
 			String s = sc.nextLine();
 			String[] ar = s.split(",");
 			int check = 0;
@@ -37,9 +31,12 @@ public class EmployeesList {
 			}
 			count++;
 		}
-		System.out.println(countMap.keySet());
 		for (String n : countMap.keySet()) {
-			System.out.println(n + " : " + countMap.get(n));
+			System.out.print(n+":");
+			for(int i = 0;i<countMap.get(n).size();i++) {
+				System.out.print(countMap.get(n).get(i) +",");
+			}	
+			System.out.println();
 		}
 	}
 }

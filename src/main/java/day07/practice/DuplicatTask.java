@@ -54,15 +54,14 @@ public class DuplicatTask {
 
 		HashSet<Task> taskList = new HashSet<Task>();
 
-		taskList.add(new Task("learn React", 5,"2023-10-10"));
-		taskList.add(new Task("learn java", 4,"2023-10-10"));
-		taskList.add(new Task("learn corejava", 10,"2023-10-10"));
-		taskList.add(new Task("learn corejava", 10,"2023-10-10"));
+		taskList.add(new Task("learn React", 5,"2023-09-10"));
+		taskList.add(new Task("learn java", 6,"2023-10-10"));
+		taskList.add(new Task("learn corejava", 1,"2023-05-10"));
+		taskList.add(new Task("learn corejava", 1,"2023-05-10"));
 		return taskList;
 		
 	}
 	public static void main(String[] args) {
-
 
 		HashSet<Task> taskList = createTask();
 

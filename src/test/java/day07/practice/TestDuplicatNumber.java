@@ -32,10 +32,7 @@ public class TestDuplicatNumber {
 		{
 			Assertions.assertEquals("This array is not contain all unique elements.", ex.getMessage());
 		}
-
 	}
-	
-	
 	
 	@Test
 	public void testInValidArray() {
