@@ -1,65 +1,103 @@
 package day09.practice;
 
+
 import java.time.LocalDate;
+
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.Collections;
+import java.util.Objects;
 
-class Task {
-    private int id;
-    private String name;
-    private LocalDate deadline;
+public class TaskSort implements Comparable<TaskSort> {
+	
+	
 
-    public Task(int id, String name, LocalDate deadline2) {
-        this.id = id;
-        this.name = name;
-        
-//        LocalDate localDate = LocalDate.parse(deadline2);
-        this.deadline = deadline2;
-        
-    }
+	private int id;
+	private String name;
+	private LocalDate deadline;
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public LocalDate getDeadline() {
-        return deadline;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDate getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(LocalDate deadline) {
+		this.deadline = deadline;
+	}
+
+	
+	public TaskSort(int id, String name, LocalDate deadline) {
+		this.id = id;
+		this.name = name;
+		this.deadline = deadline;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(deadline, id, name);
+	}
+	@Override
+	
+	public int compareTo(TaskSort o) {
+
+		if (deadline.equals(o.getDeadline())) {
+			return 0;
+		} else {
+			if (deadline.isAfter(o.getDeadline())) {
+				return 1;
+			} else {
+				return -1;
+			}
+			// return ( this.balance > o.getBalance()) ? 1: -1;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "SortingTask " + id +" "+  name +" "+deadline ;
+	}
+	
+	public static ArrayList<TaskSort> sortNumberTask(ArrayList<TaskSort> taskList) throws IllegalArgumentException  {
+		if(taskList==null) {
+			throw new IllegalArgumentException("The array cannot be empty");
+			
+		}
+		
+		Collections.sort(taskList);
+	for(TaskSort task:taskList) {
+		System.out.println(task);
+		
+	}
+	return  taskList;
+
+	}
+	
+	
+	public static void main(String[] args) {
+
+		ArrayList<TaskSort> taskList = new ArrayList<>();
+
+		taskList.add(new TaskSort(1, "taseat", LocalDate.of(2023, 7, 19)));
+		taskList.add(new TaskSort(5, "tasklearn", LocalDate.of(2023, 7, 11)));
+		taskList.add(new TaskSort(2, "taseat", LocalDate.of(2023, 7, 15)));
+		taskList.add(new TaskSort(3, "tasklearn", LocalDate.of(2023, 7, 17)));
+//		System.out.println(taskList);
+		sortNumberTask(taskList);
+	}
+
+
 }
-
-public class TaskSort {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Task> tasks = new ArrayList<>();
-
-        System.out.println("Enter tasks (id, name, deadline):");
-        while (scanner.hasNextLine()) {
-            String input = scanner.nextLine();
-            if (input.isEmpty()) {
-                break;
-            }
-
-            String[] taskInfo = input.split(",");
-            int id = Integer.parseInt(taskInfo[0].trim());
-            String name = taskInfo[1].trim();
-            LocalDate deadline = LocalDate.parse(taskInfo[2].trim());
-//
-            Task task = new Task(id, name, deadline);
-            tasks.add(task);
-        }
-        tasks.sort(Comparator.comparing(Task::getDeadline));
-
-
-        System.out.println("Sorted tasks by deadline:");
-        for (Task task : tasks) {
-            System.out.println(task.getId() + "," + task.getName() + "," + task.getDeadline());
-        }
-        scanner.close();
-    }
-}
-

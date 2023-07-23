@@ -1,29 +1,71 @@
 package day09.practice;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 import java.util.Scanner;
 
 public class ListOfInt {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<>();
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter a how may number should be");
 
-        System.out.print("Enter numbers: ");
-        String input = scanner.nextLine();
+		int n = scan.nextInt();
+		ArrayList<Integer> arrayList = new ArrayList<>();
+		System.out.println("Enter a the number should be");
 
-        String[] numberStrings = input.split(" ");
-        for (String numberString : numberStrings) {
-            int number = Integer.parseInt(numberString);
-            numbers.add(number);
-        }
+		for (int i = 0; i < n; i++) {
+			int input = scan.nextInt();
+			arrayList.add(input);
+		}
 
-        Collections.sort(numbers);
+		List<Integer> list = sortNumber(arrayList);
+		System.out.print("Sorted list: ");
+		String data = "";
+		for (int number : list) {
+			data += number + " ";
 
-        System.out.print("Sorted list: ");
-        for (int number : numbers) {
-            System.out.print(number + " ");
-        }
-    }
+		}
+
+		System.out.print(data);
+	}
+
+	
+	
+	public static boolean ValidNumberSorting(int n) throws IllegalArgumentException {
+		
+		
+	
+		if(n<=1) {
+		throw new	IllegalArgumentException("The number cannot be 1 and less than1");
+			
+		}
+		ArrayList<Integer> arrayList1 = new ArrayList<>();
+		System.out.println("Enter a the number should be");
+
+//		for (int i = 0; i < n; i++) {
+//			int input = scan.nextInt();
+//			arrayList1.add(input);
+//		}
+
+		List<Integer> list = sortNumber(arrayList1);
+		System.out.print("Sorted list: ");
+		String data = "";
+		for (int number : list) {
+			data += number + " ";
+
+		}
+
+//		System.out.print(data);
+return true;
+
+		
+	}
+	public static List<Integer> sortNumber(ArrayList<Integer> arrayList)throws IllegalArgumentException {
+		if(arrayList==null) {
+			throw new IllegalArgumentException("Array cannot be empty");
+			
+		}
+		Collections.sort(arrayList);
+		return arrayList;
+
+	}
 }
-

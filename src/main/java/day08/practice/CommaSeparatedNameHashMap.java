@@ -1,25 +1,54 @@
 package day08.practice;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+/*
+ * Sample Input
+
+Enter the string: Ram, Ram, Superman, spider, hey, hello, hey, Spider
+ */
 
 public class CommaSeparatedNameHashMap {
 	public static void main(String[] args) {
-		String[] s = { "Ram", "Ram", "Superman", "Spider", "hey", "hello", "hey", "Spider" };
-		Map<String, Integer> nameMap = countNames(s);
+		String s = "Ram,Ram,Superman,Spider,hey,hello,Spider";
 
-		for (String names : nameMap.keySet()) {
-			Integer count = nameMap.get(names);
-			System.out.println(names + ": " + count);
+		Map<String, Integer> countMap=countRepetation(s);
+
+		for (String element : countMap.keySet()) {
+		
+			Integer count = countMap.get(element);
+			System.out.println(element + ": " + count);
+			
 		}
+//		System.out.println(countMap);
 	}
-
-	public static Map<String, Integer> countNames(String[] namesArray) {
-		Map<String, Integer> nameMap = new TreeMap<>();
-
-		for (String name : namesArray) {
-			nameMap.put(name, nameMap.getOrDefault(name, 0) + 1);
+	
+	public static Map<String, Integer> countRepetation(String s) throws IllegalArgumentException {
+	
+		if(s==null|| "".equals(s.trim())) {
+			throw new IllegalArgumentException("A string cannot be null or empty");
 		}
+		
+		
 
-		return nameMap;
+		 
+		 String arr[] =s.split(",");
+		HashMap<String, Integer> countMap = new HashMap<String, Integer>();
+		for (int i = 0; i < arr.length; i++) {
+
+			if (countMap.get(arr[i]) == null) {
+				countMap.put(arr[i], 1);
+			} else {
+				int count = countMap.get(arr[i]);
+				count++;
+				countMap.put(arr[i], count);
+
+			}
+
+		
+		
 	}
+		return countMap;
+
+}
 }
